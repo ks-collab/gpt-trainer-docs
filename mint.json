@@ -65,14 +65,34 @@
       "pages": ["api-reference/authentication"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "chatbot",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-reference/chatbot/create_chatbot-<post>",
+        "api-reference/chatbot/fetch_chatbot-<get>",
+        "api-reference/chatbot/delete_chatbot-<delete>",
+        "api-reference/chatbot/create_chat_session-<post>",
+        "api-reference/chatbot/fetch_chatbot_sessions-<get>",
+        "api-reference/chatbot/update_chatbot-<post>",
+        "api-reference/chatbot/fetch_chatbots-<get>",
+        "api-reference/chatbot/delete_chat_message-<post>",
+        "api-reference/chatbot/delete_chat_messages-<post>",
+        "api-reference/chatbot/fetch_chat_session-<get>",
+        "api-reference/chatbot/create_chat_message_stream-<post>",
+        "api-reference/chatbot/fetch_chat_session_messages-<get>"
       ]
-    }
+    },
+    {
+      "group": "data-source",
+      "pages": [
+        "api-reference/data-source/create_data_source_qa-<post>",
+        "api-reference/data-source/create_data_source_upload-<post>",
+        "api-reference/data-source/create_data_source_url-<post>",
+        "api-reference/data-source/fetch_chatbot_data_sources-<get>",
+        "api-reference/data-source/delete_data_source-<post>",
+        "api-reference/data-source/update_data_source-<post>",
+        "api-reference/data-source/delete_data_sources-<post>"
+      ]
+    }    
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/mintlify",
