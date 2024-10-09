@@ -1,5 +1,5 @@
 {
-  "name": "GPT-Trainer API",
+  "name": "GPT-trainer API",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -31,6 +31,17 @@
       "name": "API References",
       "icon": "code",
       "url": "api-reference"
+    },
+    {
+      "name": "Tools",
+      "icon": "gear",
+      "api": {
+        "baseUrl": "https://tools.gpt-trainer.com/", 
+        "auth": {
+          "method": "bearer" 
+        }
+      },
+      "url": "tools"
     },
     {
       "name": "Whitelabel",
@@ -139,6 +150,18 @@
         "api-reference/source-tags/fetch-multi",
         "api-reference/source-tags/update",
         "api-reference/source-tags/delete"
+      ]
+    },
+    {
+      "group": "Tool Guides",
+      "pages": [
+        "tools/tools-intro"
+      ]
+    },
+    {
+      "group": "Tools",
+      "pages": [
+        "tools/weekday"
       ]
     },
     {
