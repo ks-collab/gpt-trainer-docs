@@ -11,6 +11,7 @@ description: "Create a File source for a chatbot specified by chatbot uuid"
 ### Body
 
 <ParamField body="file_path" type="string" required />
+<ParamField body="reference_source_link" type="string" />
 
 ### Response
 
@@ -28,7 +29,8 @@ description: "Create a File source for a chatbot specified by chatbot uuid"
 <RequestExample>
 
 ```bash Curl
-curl -X POST -F "file=@{file_path}" https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/data-source/upload \
+curl -X POST -F "file=@{file_path}" 'meta_json="{\"reference_source_link\": \"{reference_source_link}\"}
+"' https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/data-source/upload \
 --header 'Authorization: Bearer <token>' \
 ```
 
@@ -40,11 +42,17 @@ file_path = '{file_path}'
 
 api_url = 'https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/data-source/upload'
 
+headers = {
+    "Authorization": "Bearer <token>"
+}
+
 file_name = os.path.basename(file_path)
 
 files = {'file': (file_name, open(file_path, 'rb'))}
 
-response = requests.post(api_url, files=files)
+payload={'reference_source_link': '{reference_source_link}'}
+
+response = requests.post(api_url, files=files, data=payload, headers=headers)
 
 if response.status_code == 200:
     print('File upload successful:', response.text)
@@ -68,6 +76,7 @@ const fileStream = fs.createReadStream(filePath);
 
 const formData = new FormData();
 formData.append("file", fileStream, fileName);
+formdata.append("reference_source_link", "{reference_source_link}");
 
 axios
   .post(apiUrl, formData, {
