@@ -167,7 +167,12 @@
       "pages": [
         "whitelabel/whitelabel-intro",
         "whitelabel/whitelabel-plans",
-        "whitelabel/whitelabel-users",
+        "whitelabel/whitelabel-users"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
         "whitelabel/whitelabel-zapier",
         "whitelabel/whitelabel-make"
       ]
