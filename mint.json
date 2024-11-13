@@ -116,7 +116,9 @@
         "api-reference/sessions/properties-reference",
         "api-reference/sessions/create",
         "api-reference/sessions/fetch",
-        "api-reference/sessions/fetch_multi"
+        "api-reference/sessions/fetch_multi",
+        "api-reference/sessions/delete",
+        "api-reference/sessions/delete_multi"
       ]
     },
     {
@@ -165,7 +167,9 @@
       "pages": [
         "whitelabel/whitelabel-intro",
         "whitelabel/whitelabel-plans",
-        "whitelabel/whitelabel-users"
+        "whitelabel/whitelabel-users",
+        "whitelabel/whitelabel-zapier",
+        "whitelabel/whitelabel-make"
       ]
     }
   ],
