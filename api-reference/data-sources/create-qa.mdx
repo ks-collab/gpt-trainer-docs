@@ -6,26 +6,26 @@ description: "Create a QA source for a chatbot specified by chatbot uuid"
 
 ### Path
 
-<ParamField path="uuid" type="string" required/>
+<ParamField path="uuid" type="string" required />
 
 ### Body
 
-<ParamField body="question" type="string" required/>
-<ParamField body="answer" type="string" required/>
+<ParamField body="question" type="string" required />
+<ParamField body="answer" type="string" required />
 <ParamField body="reference_source_link" type="string" />
 
 ### Response
 
-<ResponseField name="created_at" type="string"/>
-<ResponseField name="file_name" type="string"/>
-<ResponseField name="file_size" type="number"/>
-<ResponseField name="meta_json" type="string"/>
-<ResponseField name="modified_at" type="string"/>
-<ResponseField name="status" type="string"/>
-<ResponseField name="title" type="string"/>
-<ResponseField name="type" type="string"/>
-<ResponseField name="tokens" type="number"/>
-<ResponseField name="uuid" type="string"/>
+<ResponseField name="created_at" type="string" />
+<ResponseField name="file_name" type="string" />
+<ResponseField name="file_size" type="number" />
+<ResponseField name="meta_json" type="string" />
+<ResponseField name="modified_at" type="string" />
+<ResponseField name="status" type="string" />
+<ResponseField name="title" type="string" />
+<ResponseField name="type" type="string" />
+<ResponseField name="tokens" type="number" />
+<ResponseField name="uuid" type="string" />
 
 <RequestExample>
 
@@ -35,7 +35,7 @@ curl --location --request POST 'https://app.gpt-trainer.com/api/v1/chatbot/{uuid
 --header 'Authorization: Bearer <token>' \
 --data-raw '{
   "question": "string",
-  "answer": "string" 
+  "answer": "string"
 }'
 ```
 
@@ -51,7 +51,7 @@ headers = {
 
 data = {
     "question": "string",
-    "answer": "string" 
+    "answer": "string"
 }
 
 response = requests.post(url, headers=headers, json=data)
@@ -65,28 +65,29 @@ else:
 ```
 
 ```ts JavaScript
-const axios = require('axios');
+const axios = require("axios");
 
-const uuid = '<chatbot-uuid>'
+const uuid = "<chatbot-uuid>";
 const url = `https://app.gpt-trainer.com/api/v1/chatbot/${uuid}/data-source/qa`;
 const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer <token>'
+  "Content-Type": "application/json",
+  Authorization: "Bearer <token>",
 };
 
 const data = {
-    "question": "string",
-    "answer": "string" 
+  question: "string",
+  answer: "string",
 };
 
-axios.post(url, data, { headers })
-    .then(response => {
-        console.log('Request successful!');
-        console.log(response.data);
-    })
-    .catch(error => {
-        console.error('Request failed:', error);
-    });
+axios
+  .post(url, data, { headers })
+  .then((response) => {
+    console.log("Request successful!");
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error("Request failed:", error);
+  });
 ```
 
 </RequestExample>
@@ -106,7 +107,6 @@ axios.post(url, data, { headers })
   "type": "string",
   "uuid": "string"
 }
-
 ```
 
 </ResponseExample>
