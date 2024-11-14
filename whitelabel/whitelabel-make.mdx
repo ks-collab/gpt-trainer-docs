@@ -6,7 +6,9 @@ title: Publishing a Make app
 
 ## Base configuration
 
-First, you will want to go to "Apps" on the left-side menu within your Make.com account, and create a new app. The name, description, logo, etc. are to be determined by you.
+Make.com has its own guide on how to make custom apps [here](https://www.make.com/en/use-cases/build-custom-app-in-make). If you require some functions that are not covered in our guide below, please refer to the official documentation for ideas or assistance.
+
+To start, you will want to go to "Apps" on the left-side menu within your Make.com account, and create a new app. The name, description, logo, etc. are to be determined by you.
 
 After setting up that part, you will be directed to the main app page, to a tab called "Base". In the base structure code section, you will want to paste the following:
 
@@ -403,11 +405,16 @@ And in the "Samples" tab, you can use the following:
 After this, you should be all set for modules.
 
 ## Other settings
+
 In the main app window, you do not need to do anything in the "Remote Procedures", "Groups", or "Readme" tabs if you do not want to. You can consult Make.com's documentation if you would like to customise your integration further.
 
 Once you are set, you can submit your Make.com app for review. You will need to provide a link to your API documentation, as well as create scenarios for each one of your modules. 
 
 If you encounter any difficulties with the review process, please let us know.
+
+Once you have completed the review process, your Make.com app should have an associated public invitation link. For example, GPT-trainer's Make.com link is: [https://www.make.com/en/hq/app-invitation/066096884188bc6b173953df718d8808](https://www.make.com/en/hq/app-invitation/066096884188bc6b173953df718d8808). You can paste this link into the Partners Dashboard once it's ready.
+
+Finally, Make.com and Zapier integrations share the same metadata property in your Stripe plan permissions. Please set the `zapier_integration` boolean to True to enable it for your desired plans.
 
 
 
