@@ -2,90 +2,130 @@
 title: Lead Collection
 ---
 
-GPT-trainer uses a multiple-agent architecture for its chatbot design. To conduct lead collection
-under this framework, you will either need to create a dedicated Lead Collection Agent or integrate its capabilities inside another, existing one.
+There are two ways to collect data from users when they engage with your AI Chat.
 
-To create a simple Lead Collection Agent, head to the “AI Agents” tab. You can find the template for a
-Lead Collection Agent when you click on "Create new Agent".
+1. Through a form
+2. Conversationally
 
-<Frame>
-  <img src="/images/lead-collection-1.png" />
-</Frame>
+There are pros and cons for each approach. Forms are easier to set up and is programmatic, but collecting information conversationally is more 
+natural and engaging despite the added complexity. You can send any collected data via webhook to a CRM as soon as your user submits it.
 
-After you create the new Agent, go into its edit screen by clicking on it. Scroll down to review the base prompt.
-Depending on what information you would like to capture, configure the base prompt appropriately.
+## Collecting data through a form
+To add a form to your AI Chat, go to Customizations tab on the left navigation menu, then scroll down until you see the "Form" section:
 
 <Frame>
-  <img src="/images/lead-collection-2.png" />
+  <img src="/images/lead-collection-13.png" />
 </Frame>
 
-Click “Save changes”. Next, go to the “Variables / Tags” tab. For each piece of
-information you want to capture, make sure there is a corresponding Variable created to store it.
+You can select one of the default fields you'd like to include in the form. Alternatively, you can create custom fields.
 
 <Frame>
-  <img src="/images/lead-collection-3.png" />
+  <img src="/images/lead-collection-14.png" />
 </Frame>
 
-When defining the variable, be as explicit and concise as possible. Where you can, try to provide examples
-for what the intended values look like. You can also pre-define the variable’s default state. If left empty, its default value will be “NOT PROVIDED”.
+For custom fields, you can change the field types (text, dropdown, checkbox). You can also make certain fields mandatory. If at least one field is 
+mandatory, you will also gain the option to make the entire form mandatory before the user can proceed with chatting. Making the form mandatory 
+will cause the "x" button on the top right of the form to disappear, thereby preventing users from closing the form before completing it.
 
 <Frame>
-  <img src="/images/lead-collection-4.png" />
+  <img src="/images/lead-collection-15.png" />
 </Frame>
 
-You can also make it mandatory for the Variables to have non-empty (non-”NOT PROVIDED”) values before the AI Supervisor switches away from the Agent.
-You can do so using [AI Supervisor Overrides](supervisor-overrides). If you apply the appropriate settings there, the Lead Collection Agent will not 
-switch away until all the Variables defined in this Agent have been assigned proper values.
 
-Next, head over to the “Knowledge” tab. Depending on what information you’d like
-the Agent to have access to when requesting user information, you can link
-the associated training data with this Agent. In general, Lead Collection Agents are
-designed to specialize in collecting personal information from users, so they may not need any
-knowledge base access. To disable all knowledge, simply toggle off “All Sources” and leave “Agent Sources” empty.
+## Collecting data conversationally
+
+If you want to maintain a natural conversational flow and collect data from users directly, you will have to configure your AI Agent(s) prompt and 
+set up variables to store the collected information.
+
+### Editing the prompt
+
+The behavior of your AI Chat is governed by your AI Agent(s)'s prompt. To review and edit the prompt, go to AI Agents 
+tab on the left navigation menu, then click on the Agent you'd like to edit.
+
+<Note>
+  If you created your AI Chat using a template, then you may be using a default prompt we generated for you. If this is the first time you are configuring 
+  an AI Agent prompt, we recommend you to read our Prompt Engineering guide for best practices.
+</Note>
 
 <Frame>
-  <img src="/images/lead-collection-6.png" />
+  <img src="/images/lead-collection-16.png" />
 </Frame>
-
-Click “Save changes” and close the Agent edit dialog. Return to the Agent selection view. You can now “Connect” your new Lead Collection Agent.
-On the top right of the Agent card, open the “three dot” dropdown menu, then select “Connect”.
 
 <Frame>
-  <img src="/images/lead-collection-7.png" />
+  <img src="/images/lead-collection-17.png" />
 </Frame>
 
-You should now see a glowing blue dot next to “Lead Collection”, indicating that the
-Agent is being trained. Since you may want your Agent to collect user
-information before performing any service, you can set this as the “Initial Agent” to handle the first incoming user query.
+Configure your prompt to include detailed instructions for collecting user data. Make sure you cover when, what, and how. For example, here is a snippet 
+that can serve as a guide:
+
+```
+### Instructions
+- When engaging with the user for the first time, politely ask for their first name.
+- Once the user provides their first name, proceed with the following steps to collect their contact information.
+- Ask for the user's mobile telephone number after collecting their first name.
+- After the mobile telephone number is collected, ask for their e-mail address.
+- If the user is not comfortable providing any particular piece of information, do not force them. Respect their decision.
+```
+
+But this only directs the AI to ask for information from the user. We still need a way to store the collected information. Next, we'll teach you how to store 
+the collected data into variables.
+
+### Setting up variables
+
+Go to Customizations tab on right navigation bar, then scroll down until you see "User Data Collection". Click to expand it.
 
 <Frame>
-  <img src="/images/lead-collection-8.png" />
+  <img src="/images/lead-collection-18.png" />
 </Frame>
 
-After the blue dot turns green, your Agent will be good to go. You may need to
-refresh the page to check for status updates.
-
-Go to the “Preview” tab. You can now test your new chatbot, now equipped with conversational Lead Collection capabilities!
+Inside, you can create variables to store information that is collected from the user during the conversation. You can set up multiple variables, each corresponding 
+to a single piece of information. When setting up a variable, please provide the variable name, description, and example values. Try to be as detailed and explicit 
+as possible.
 
 <Frame>
-  <img src="/images/lead-collection-9.png" />
+  <img src="/images/lead-collection-19.png" />
 </Frame>
 
-To review the data you collected, open the “Debug mode” while you are still in Preview.
+_The more examples you provide, the better it is for the AI to understand the format you're looking for._
+
+Make sure to define enough variables to store all the information you are requesting from the user. In the example prompt snippet above, you would need the user's name, 
+phone, and email.
+
+Once everything has been set up, you can test the AI Chat in preview mode. If everything works as intended, you should see the data being collected in your inbox every 
+time a user engages meaningfully with your AI Chat.
+
+<Note>
+  Variable values can change if the user specifies that they want to make a correction or update. The AI is generally good at understanding the correct value to assign.
+</Note>
 
 <Frame>
-  <img src="/images/lead-collection-10.png" />
+  <img src="/images/lead-collection-20.png" />
 </Frame>
 
-You can also head to the “Inbox” tab, find the test conversation session, then open “Debug view”.
+## Sending data to your CRM
+
+Regardless of whether you want to collect data using a form or conversationally, you may wish to send that information to another CRM for follow up. GPT-trainer supports 
+webhooks with smart triggers that can alert you to new leads as soon as they engage with the AI.
+
+Go to Customizations tab on the left navigation menu. Then scroll down to "Webhook". Click to expand it.
 
 <Frame>
-  <img src="/images/lead-collection-11.png" />
+  <img src="/images/lead-collection-21.png" />
 </Frame>
 
-You can export the data you collected across all chat sessions by going to the “Inbox” tab, then clicking the
-“Export” button. In the subsequent dropdown, select “Collected Data”.
+If you are using a form, then you can select the "Form Submission" event and specify the API endpoint where you want the collected data to be sent (POST request).
+
+If you are using variables to store user data, then you can select the "Data Collection" event and choose the variables you'd like to be sent. **Please note that the webhook 
+will only be triggered if all your designated variables have been collected (must not be empty).**
+
+If you want certain variables to be optional, then you can give it a default value during variable setup. This way, it will always be in a populated state and never empty.
+
+## Sending data by email
+
+To send data by email, go to Customizations tab on the left navigation menu. Then scroll down to "Email Notifications". Click to expand it.
 
 <Frame>
-  <img src="/images/lead-collection-12.png" />
+  <img src="/images/lead-collection-22.png" />
 </Frame>
+
+Simply specify your email address and toggle on the appropriate triggers to start receiving new lead notifications.
