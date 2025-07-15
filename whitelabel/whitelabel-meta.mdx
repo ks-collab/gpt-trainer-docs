@@ -89,7 +89,15 @@ Go to **Facebook Login for Business → Configurations** in your Meta App Dashbo
 
 For each integration you wish to add (Facebook Messenger, Instagram, or WhatsApp), copy the **Configuration ID** found under the respective configuration in the "Facebook Login for Business" tab and paste it into your GPT-trainer Partners Dashboard.
 
-## 6. Request Advanced Access
+## 6. Please enter your white label platform.
+
+Then, connect the associated meta app with a demo account (WhatsApp, Messenger, Instagram); you will need separate connections for separate apps, but they can all connect to the same chatbot.
+
+Then, make an API call by sending a message. The message may not appear.
+
+> Note: Only after connecting the demo account can you access step 6; you may need to wait for 24 hours after connecting and making a successful API call before Step 6 becomes available to you
+
+## 7. Request Advanced Access
 
 You will need to request **Advanced Access** for the following permissions by filling out the necessary form in your Meta App Dashboard:
 
@@ -109,7 +117,7 @@ You will need to request **Advanced Access** for the following permissions by fi
 1. To increase the likelihood of Meta's approval, include clear videos with on-screen text instructions demonstrating your integration setup.
 2. For `whatsapp_business_management` approval, your video must explicitly show the creation of an **ice-breaker** under: https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers/conversational-components#ice-breakers
 
-## 7. Integrating with Existing Stripe Plans (Optional)
+## 8. Integrating with Existing Stripe Plans (Optional)
 
 If you want to add Meta integrations to existing Stripe plans, ensure the metadata key `meta_integration` is set to `True` for those plans.
 
