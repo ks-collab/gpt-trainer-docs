@@ -12,13 +12,13 @@ description: "Fetch the list of sessions for a chatbot specified by chatbot uuid
 
 ### Query Parameters
 
-<ParamField query="start_timestamp" type="string" optional>
-  Filter sessions created after this timestamp (inclusive).  
+<ParamField query="start_timestamp" type="string">
+  Filter sessions created after this timestamp (inclusive).\
   Format: ISO 8601 — `YYYY-MM-DDTHH:mm:ss.sssZ`
 </ParamField>
 
-<ParamField query="end_timestamp" type="string" optional>
-  Filter sessions created before this timestamp (inclusive).  
+<ParamField query="end_timestamp" type="string">
+  Filter sessions created before this timestamp (inclusive).\
   Format: ISO 8601 — `YYYY-MM-DDTHH:mm:ss.sssZ`
 </ParamField>
 
@@ -41,14 +41,22 @@ The API uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for times
 
 ### Response
 
-<ResponseField name="" type="object[]">
+<ResponseField name type="object[]">
   Session list
+
   <Expandable title="Session properties">
-    <ResponseField name="created_at" type="string" />
-    <ResponseField name="modified_at" type="string" />
-    <ResponseField name="uuid" type="string" />
+    <ResponseField name="created_at" type="string">
+      
+    </ResponseField>
+    <ResponseField name="modified_at" type="string">
+      
+    </ResponseField>
+    <ResponseField name="uuid" type="string">
+      
+    </ResponseField>
     <ResponseField name="meta" type="meta Object">
       Session meta properties
+
       <Expandable title="properties">
         <ResponseField name="user" type="user Object">
           Exists when lead form was submitted by user
@@ -65,15 +73,18 @@ The API uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for times
 <RequestExample>
 
 ```bash Curl
-curl --location --request GET 'https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/sessions' \
+curl --location --request GET 'https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/sessions?start_timestamp={start_timestamp}&end_timestamp={end_timestamp}' \
 --header 'Authorization: Bearer <token>'
 ```
+
 
 ```py Python
 import requests
 
 uuid = '<chatbot-uuid>'
-url = f'https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/sessions'
+start_timestamp = '<timestamp>'
+end_timestamp = '<timestamp>'
+url = f'https://app.gpt-trainer.com/api/v1/chatbot/{uuid}/sessions?start_timestamp={start_timestamp}&end_timestamp={end_timestamp}'
 headers = {
     'Authorization': 'Bearer <token>'
 }
@@ -88,11 +99,14 @@ else:
     print(response.text)
 ```
 
+
 ```ts JavaScript
 const axios = require("axios");
 
 const uuid = "<chatbot-uuid>";
-const url = `https://app.gpt-trainer.com/api/v1/chatbot/${uuid}/sessions`;
+const start_timestamp = '<timestamp>'
+const end_timestamp = '<timestamp>'
+const url = `https://app.gpt-trainer.com/api/v1/chatbot/${uuid}/sessions?start_timestamp=${start_timestamp}&end_timestamp=${end_timestamp}`;
 const headers = {
   Authorization: "Bearer <token>",
 };
