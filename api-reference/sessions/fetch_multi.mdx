@@ -12,12 +12,12 @@ description: "Fetch the list of sessions for a chatbot specified by chatbot uuid
 
 ### Query Parameters
 
-<ParamField name="start_timestamp" type="string" optional>
+<ParamField query="start_timestamp" type="string" optional>
   Filter sessions created after this timestamp (inclusive).  
   Format: ISO 8601 — `YYYY-MM-DDTHH:mm:ss.sssZ`
 </ParamField>
 
-<ParamField name="end_timestamp" type="string" optional>
+<ParamField query="end_timestamp" type="string" optional>
   Filter sessions created before this timestamp (inclusive).  
   Format: ISO 8601 — `YYYY-MM-DDTHH:mm:ss.sssZ`
 </ParamField>
