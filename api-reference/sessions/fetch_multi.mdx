@@ -10,6 +10,35 @@ description: "Fetch the list of sessions for a chatbot specified by chatbot uuid
   Chatbot uuid
 </ParamField>
 
+### Query Parameters
+
+<ParamField name="start_timestamp" type="string" optional>
+  Filter sessions created after this timestamp (inclusive).  
+  Format: ISO 8601 — `YYYY-MM-DDTHH:mm:ss.sssZ`
+</ParamField>
+
+<ParamField name="end_timestamp" type="string" optional>
+  Filter sessions created before this timestamp (inclusive).  
+  Format: ISO 8601 — `YYYY-MM-DDTHH:mm:ss.sssZ`
+</ParamField>
+
+#### Timestamp Format
+
+The API uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for timestamps:
+
+- Format: `YYYY-MM-DDTHH:mm:ss.sssZ`
+- Example:
+  - `start_timestamp=2025-07-16T07:00:00.000Z` means July 16, 2025 at 7:00 AM UTC
+  - `end_timestamp=2025-07-24T06:59:59.000Z` means July 24, 2025 at 6:59:59 AM UTC
+
+#### Usage Tips
+
+- Always use UTC timezone (`Z` at the end)
+- Include milliseconds (`.000`) even if zero
+- Use 24-hour time format
+- Don’t forget the `T` separator between date and time
+- URL-encode the entire value if passing in a URL manually
+
 ### Response
 
 <ResponseField name="" type="object[]">
